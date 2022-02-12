@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+{% extends 'basic_app/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/patient.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+<div class="wrapper">
+  <div class="wrapper_left">
+    <ul>
+      <li data-li="dashboard" class="active">
+        <p><i class="fas fa-user"></i> Dashboard</p>
+      </li>
+      <li data-li="book_appointment">
+        <p><i class="fas fa-notes-medical"></i> Profile Info </p>
+      </li>
+      <li data-li="view_appointment">
+        <p><i class="fas fa-clipboard-list"></i> manage appointments</p>
+      </li>
+      <li data-li="prescription">
+        <p><i class="fas fa-address-book"></i>Prescription</p>
+      </li>
+    </ul>
+  </div>
+  <div class="wrapper_right">
+
+    <div class="container">
+      <div class="item dashboard">
+        <div class="item_info">
+          <div class="img"></div>
+        </div>
+         <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <img src="{%static 'images/docpro.png'%}" id="" align="left">
+    <h1 class="display-4">About DocMed</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+  <button type="submit" class="btn btn-primary" style=" background-color: #BF2130;
+  color: #fff;
+  border-radius: 60px; 
+  width: 200px;
+  height: 50px;
+  border: none;">LEARN MORE</button>
+  
+ 
+  </div> 
+</div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4" >
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"style="font-size: 50px;text-align: center;color:#BF2130; "><i class="fas fa-hospital-user"></i></h5>
+           <p class="card-text" style="font-size: 25px;color:#BF2130;text-align: center; ">Appointments pending</p>
+          <p class="card-text" style="font-size: 35px;text-align: center; ">{{ cnt }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 50px;text-align: center;color:#BF2130; "><i class="fas fa-calendar-check"></i></h5>
+          <p class="card-text" style="font-size: 25px;color:#BF2130;text-align: center; ">Appointments done</p>
+          <p class="card-text" style="font-size: 35px;text-align: center; ">20</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 50px;text-align: center;color:#BF2130; "><i class="fas fa-user-md"></i></h5>
+           <p class="card-text" style="font-size: 25px;color:#BF2130;text-align: center; ">Total</p>
+          <p class="card-text" style="font-size: 35px;text-align: center; ">50</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      </div>
+
+
+      <div class="item book_appointment" style="display: none;">
+        <div class="item_info">
+          <div class="img"></div>
+          <p>node.js</p>
+        </div>
+         <div class="container" style="display: flex;">
+            <style type="text/css"> #app{padding-top: 25px};</style>
+
+    <div id="" style="padding-top: 50px">
+
+      <form method="POST">
+      {% csrf_token %}
+      {% if profile %}
+      <h3>Update Doctor Profile Info form!</h3>
+
+        <div class="form-group">
+    <label for="full_name">Full Name</label>
+    <input type="text" class="form-control" name="full_name" required value="{{ profile.full_name }}">
+  </div>
+
+  <div class="form-group">
+    <label for="phone_number">Phone Number</label>
+    <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required maxlength="10" minlength="10" pattern=[6-9]{1}[0-9]{9} value="{{ profile.phone_number }}">
+  </div>
+   <div class="form-group">
+    <label for="inputAddress">Select your speciality</label>
+     <select class="custom-select" name="speciality" >
+       <option selected>{{ profile.speciality }}</option>
+    <option value="physician">Physician</option>
+    <option value="Cardiologist">Cardiologist</option>
+    <option value="Dentist">Dentist</option>
+    <option value="Pediatrician">Pediatrician</option>
+    <option value="Gynecologist">Gynecologist</option>
+    <option value="Dermatologist">Dermatologist</option>
+    <option value="Eye specialist">Eye specialist</option>
+    <option value="Neurologist">Neurologist</option>
+    <option value="Surgeon">Surgeon</option>
+  </select>
+  </div>
+
+    <div>
+    <label for="qualification">Qualification</label>
+    <input type="text" class="form-control" name="qualification" placeholder="Enter your Qualification" required value="{{ profile.qualification }}">
+  </div>
+
+      <div>
+    <label for="location">Location</label>
+    <input type="text" class="form-control" name="location" placeholder="Enter your City" required
+    value="{{ profile.location }}">
+  </div>
+
+  <div>
+    <label for="hospital_name">Hospital Name</label>
+    <input type="text" class="form-control" name="hospital_name" placeholder="Hospital Name" required value="{{ profile.hospital_name }}">
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="background: #BE0000; margin-top: 20px;" >Update Profile</button>
+
+      {% else %}
+      <h3>Fill out Doctor Profile Info form!</h3>
+
+        <div class="form-group">
+    <label for="full_name">Full Name</label>
+    <input type="text" class="form-control" name="full_name"  placeholder="Full Name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="phone_number">Phone Number</label>
+    <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required maxlength="10" minlength="10" pattern=[6-9]{1}[0-9]{9}>
+  </div>
+   <div class="form-group">
+    <label for="inputAddress">Select your speciality</label>
+     <select class="custom-select" name="speciality">
+      <option value="physician">Physician</option>
+    <option value="Cardiologist">Cardiologist</option>
+    <option value="Dentist">Dentist</option>
+    <option value="Pediatrician">Pediatrician</option>
+    <option value="Gynecologist">Gynecologist</option>
+    <option value="Dermatologist">Dermatologist</option>
+    <option value="Eye specialist">Eye specialist</option>
+    <option value="Neurologist">Neurologist</option>
+    <option value="Surgeon">Surgeon</option>
+  </select>
+  </div>
+
+    <div>
+    <label for="qualification">Qualification</label>
+    <input type="text" class="form-control" name="qualification" placeholder="Enter your Qualification" required>
+  </div>
+
+      <div>
+    <label for="location">Location</label>
+    <input type="text" class="form-control" name="location" placeholder="Enter your City" required>
+  </div>
+
+  <div>
+    <label for="hospital_name">Hospital Name</label>
+    <input type="text" class="form-control" name="hospital_name" placeholder="Hospital Name" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="background: #BE0000; margin-top: 20px;" >Save Profile</button>
+
+  {% endif %}
+</form> 
+  
+</div>
+</div> 
+
+  
+   
+ 
+  </div>
+       
+
+      </div>
+
+
+      <div class="item view_appointment" style="display: none;">
+        <div class="item_info">
+          <div class="img"></div>
+          <p>React.js</p>
+        </div>
+        <div style="padding-top: 50px; padding-left: 10px;" class="table-responsive-lg">
+        <table class="table table-hover" >
+  <thead style="background: #BE0000 ;color: #fff">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Message</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    	{% for i in docapp %}
+      <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{i.First_name}} {{ i.Last_name }}</td>
+      <td>{{ i.phone_number }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.time }}</td>
+      <td>{{ i.message }}</td>
+      <td><a href="{% url 'delDocApp' i.id %}"><button type="submit" class="btn btn-outline-danger">Delete</button></a></td>
+
+    </tr>
+      {% endfor %}
+    
+  </tbody>
+</table>
+</div>
+
+      </div>
+
+      <div class="item prescription" style="display: none;">
+        <div class="item_info">
+          <div class="img"></div>
+          <p>vue.js</p>
+        </div>
+
+                <div style="padding-top: 50px; padding-left: 10px;" class="table-responsive-lg">
+        <table class="table table-hover" >
+  <thead style="background: #BE0000 ;color: #fff">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Message</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      {% for i in docapp %}
+      <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{i.First_name}} {{ i.Last_name }}</td>
+      <td>{{ i.phone_number }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.time }}</td>
+      <td>{{ i.message }}</td>
+
+      {% if i.id in pre %}
+      <td><a href="{%url 'download_doctor' i.id %}"><button type="button" class="btn btn-outline-dark">View Prescription</button></a></td>
+      {% endif %}
+
+      {% if i.id in app %}
+
+      <td><a href="{% url 'prescription' i.id %}"><button type="button" class="btn btn-outline-dark">Generate Prescription</button></a></td>
+
+      {% endif %}
+   
+
+
+      </tr>
+
+      {% endfor %}
+    
+  </tbody>
+</table>
+</div>
+        
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   
+
+	<script>
+
+
+   var li_elements = document.querySelectorAll(".wrapper_left ul li");
+var item_elements = document.querySelectorAll(".item");
+for (var i = 0; i < li_elements.length; i++) {
+  li_elements[i].addEventListener("click", function() {
+    li_elements.forEach(function(li) {
+      li.classList.remove("active");
+    });
+    this.classList.add("active");
+    var li_value = this.getAttribute("data-li");
+    item_elements.forEach(function(item) {
+      item.style.display = "none";
+    });
+    if (li_value == "dashboard") {
+      document.querySelector("." + li_value).style.display = "block";
+    } else if (li_value == "book_appointment") {
+      document.querySelector("." + li_value).style.display = "block";
+    } else if (li_value == "view_appointment") {
+      document.querySelector("." + li_value).style.display = "block";
+    } else if (li_value == "prescription") {
+      document.querySelector("." + li_value).style.display = "block";
+    } else {
+      console.log("");
+    }
+  });
+} 
+  </script>
+
+
+
+{% endblock %}

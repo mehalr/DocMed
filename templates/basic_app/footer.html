@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <style type="text/css">
+    .footersection{
+  width: 100%;
+  height: auto;
+  padding: 70px 0 20px 0;
+  background: #BF2130;
+  position: relative;
+}
+
+.footersection p{
+  color: #fff;
+}
+
+.footersection li a{
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #fff;
+  text-transform: capitalize;
+
+}
+  </style>
+ <!-- footer -->
+ <footer class="footersection" id="footerdiv">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12 footer-div">
+        <div>
+          <h3>ABOUT US</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. </p>
+        </div>
+      </div>
+
+       <div class="col-lg-4 col-md-6 col-12 footer-div text-center">
+        <div>
+          <h3>Navigation links</h3>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#">contact us</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="#">Service</a></li>
+        </div>
+      </div>
+
+
+       <div class="col-lg-4 col-md-6 col-12 footer-div">
+        <div>
+          <h3>Newsletter</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. </p>
+
+          <div class="container newsletter-main">
+            <div class="row">
+              <div class="col-lg-8 offset-lg-2 col-12 ">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control news-input" placeholder="Your Email">
+                  <div class="input-group-append">
+                    <span class="input-group-text">Subscribe</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-5 text-center">
+       <div class="col item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
+      <p>Copyright ©2020 All rights Reserved</p> 
+    </div>
+  </div>
+   
+ </footer>
+
+
+ <!-- end of footer -->
+</body>
+</html>

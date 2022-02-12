@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+ {% block body_block %}
+    
+       <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+       <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+ 
+
+    <div class="loginbox">
+        <h1>Sign up for Doctors</h1>
+        <hr><h5>Its free and will only take a while!</h5>
+        <form action="{% url 'doctor_reg'%}" method="POST">
+          {% csrf_token %}
+          {% for field in form.visible_fields %}
+                           <div class="form-group">
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                    {% for error in field.errors %}
+                                      <span style="color:red">{{ error }}</span>
+                                    {% endfor %}
+          {% endfor %}
+
+
+            <input type="submit" name="" value="Register">
+           
+        </form>
+        
+    </div>
+
+<style type="text/css">
+  body{
+    margin: 0;
+    padding: 0;
+    background: url('https://libertyfamilymed.com/wp-content/uploads/2018/03/Medical-background.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+}
+
+
+
+
+.button1{
+    color: #E8505B;
+    background-color: #fff;
+    border: 2px solid #E8505B;
+    border-radius: 40px; 
+    width: 100px;
+    height: 30px;
+}
+
+.button2{
+    background-color: #E8505B;
+    color: #fff;
+    border: none;
+    border-radius: 40px; 
+    width: 100px;
+    height: 30px;
+}
+
+.loginbox{
+    width: 600px;
+    height: 1100px;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-25%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.loginbox input[type="text"], input[type="password"], input[type="email"]
+{
+    border: none;
+    border-bottom: 2px solid #BF2130;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #BF2130;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #ffc107;
+}
+
+</style>
+
+
+{% endblock %}

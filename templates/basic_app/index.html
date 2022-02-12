@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+{% extends "basic_app/base.html" %}
+{% load static %}
+
+  {% block body_block %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+ <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3c35f8069e.js" crossorigin="anonymous"></script>
+	<header>
+
+
+	<main>
+  <section class="left-sec">
+   <h2> We Are Here For Your Care</h2>
+   <h1>  We The Best Doctors</h1>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+   tempor incididunt ut labore et dolore magna aliqua. </p>
+   <hr>
+   <p> </p>
+   <button class="button button3">
+     LEARN MORE
+   </button>
+  </section>
+
+  <section class="right-sec">
+   <figure>
+    <img src="{% static "images/nice.png/" %}" id="img">
+   </figure>
+  </section>
+ </main>
+ </header>
+
+ <!-- something nice -->
+ <section class="header-extradiv" id="something">
+ 	<div class="container">
+ 		<h2 class="text-center font-weight-bold" id="h">WHAT DO WE OFFER</h2>
+ 		<div class="row">
+ 			<div class=" extra-div col-lg-4 col-md-4 col-12">
+ 				<a href="#"><i class="fas fa-stethoscope fa-3x" aria-hidden="true"></i></a>
+ 				<h2>Diagnosis</h2>
+ 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
+ 			</div>
+ 			<div class=" extra-div col-lg-4 col-md-4 col-12">
+ 				<a href="#"><i class="fas fa-pills fa-3x"></i></a>
+ 				<h2>Medication</h2>
+ 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
+ 			</div>
+ 			<div class=" extra-div col-lg-4 col-md-4 col-12">
+ 				<a href="#"><i class="fas fa-briefcase-medical fa-3x"></i></a>
+ 				<h2>Emergency services</h2>
+ 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
+ 			</div>
+ 		</div>
+ 	</div>
+  
+   <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <img src="{% static "images/news.png/" %}" id="news" align="right">
+    <h1 class="display-4">News updates!</h1>
+    <p class="lead">Get latest health news updates regarding Covid-19 and much more!</p>
+  </div>
+  <button class="button button3">
+     LEARN MORE
+   </button>
+</div>
+
+  <main id="pharm">
+  <section class="left-sec">
+    <figure>
+    <img src="{% static "images/pharm.png/" %}" id="img">
+   </figure>
+  </section>
+  <section class="right-sec">
+   <h2> We Are Here For Your Care</h2>
+   <h1>  We The Best Doctors</h1>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+   tempor incididunt ut labore et dolore magna aliqua. </p>
+   <hr>
+   <p> </p>
+   <button class="button button3">
+     LEARN MORE
+   </button>
+  </section>
+ </main>
+
+ </section>
+
+
+ </header>
+
+
+
+ <!-- end of something nice -->
+ <!-- footer -->
+<!--  <footer class="footersection" id="footerdiv">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12 footer-div">
+        <div>
+          <h3>ABOUT US</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. </p>
+        </div>
+      </div>
+
+       <div class="col-lg-4 col-md-6 col-12 footer-div text-center">
+        <div>
+          <h3>Navigation links</h3>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">contact us</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Service</a></li>
+        </div>
+      </div>
+
+
+       <div class="col-lg-4 col-md-6 col-12 footer-div">
+        <div>
+          <h3>Newsletter</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. </p>
+
+          <div class="container newsletter-main">
+            <div class="row">
+              <div class="col-lg-8 offset-lg-2 col-12 ">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control news-input" placeholder="Your Email">
+                  <div class="input-group-append">
+                    <span class="input-group-text">Subscribe</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-5 text-center">
+       <div class="col item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
+      <p>Copyright ©2020 All rights Reserved</p> 
+    </div>
+  </div>
+   
+ </footer> -->
+
+
+ <!-- end of footer -->
+{% include "basic_app/footer.html" %}
+  {% endblock %}
+  
+
+
+
+
+
+
+
+
+

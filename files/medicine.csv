@@ -1,0 +1,42 @@
+﻿Disease,Medicine1,Medicine2,Medicine3
+Drug Reaction,Cetirizine (Zyrtec),fexofenadine (Allegra),
+Malaria,Chloroquine Phosphate,Quinine Sulphate,Primaquine Phosphate
+Allergy,Cetirizine,Desloratadine,Loratadine
+Hypothyroidism,Levothroxine,,
+Psoriasis,Vitamin A derivative,Anti-inflammatory,Immunosuppressive drug
+GERD,Antacid,Proton-pump inhibitor,Antidiarrhoel
+Chronic cholestasis,Amoxicillin,Advil,Minocine
+hepatitis A,Acetaminophin,Hepatitis Immuno Globulin,
+Osteoarthristis,Acetaminophin,Nonsteriodal anti-inflammatory drugs,Duloxetine
+(vertigo) Paroymsal Positional Vertigo,Epley maneuver,,
+Hypoglycemia,Glucagon,,
+Acne,Apply Apple Cider Vinegar,Zinc Supplements,
+Diabetes,Insulin,Statin,Anticoagulant
+Impetigo,Penicilin,Antibiotics,
+Hypertension,ACE inhibitor,Diuretic,Vasodilator
+Peptic ulcer disease,Antibiotics,Antidiarrhoel,Penicillin
+Dimorphic hemorrhoids(piles),Proctofoam-HC Foam,Hydrocortisone Cream,Caladryl Lotion
+Common Cold,Analgesic,Antihistamine,Decongestant
+Chicken pox,Analgesic,Antihistamine,
+Cervical spondylosis,Nonsteroidal anti-inflammatory drugs,Corticosteriods,Muscle Relaxants
+Hyperthyroidism,Radioactive iodine,methimazole (Tapazole)/propylithiouracil,
+Urinary tract infection,Antibiotics,Penicillin,
+Varicose veins,Laser Therapy,Sclerotherapy,
+AIDS,antiretroviral regimens (ARVs),HIV antiviral,
+Paralysis (brain hemorrhage),Craniotomy,Physical Therapy,
+Typhoid,ciprofloxacin,ceftriaxone,
+Hepatitis B,entecavir (Baraclude),tenofovir (Viread),
+Fungal infection,clotrimazole,econazole,
+Hepatitis C,Simeprevir,sofosbuvir,Ribavarin
+Migraine,sumatriptan (Imitrex),rizatriptan (Maxalt),
+Bronchial Asthma,simeprevir,sofosbuvir,
+Alcoholic hepatitis,Visit doctor immediately,,
+Jaundice,Visit doctor immediately,,
+Hepatitis E,Ribavarin,Pegylated interferon alfa,
+Dengue,Visit doctor immediately,,
+Hepatitis D,Pegylated interferon alfa,,
+Heart attack,Aspirin,Nitroglycerin,Beta Blockers
+Pneumonia,Macrolides,Oral antibiotics,
+Arthritis,Hydrotherapy,Surgery,
+Gastroenteritis,Imodium,,
+Tuberculosis,Oral rehydration drinks,,

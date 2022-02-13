@@ -374,7 +374,123 @@ def download_doctor(request,pk):
     }
     return render_to_pdf('basic_app/download.html',dict)
 
+def insurance(request):
+	price = None
+	insurance_plans = [('Edelweiss Health Insurance','2578+',115.0,'https://www.edelweissinsurance.com/health-insurance'),
+	 ('United India Health Insurance','7000+',110.95,'https://uiic.co.in/product/health'),
+	 ('Oriental Health Insurance','4300+',108.8,'https://orientalinsurance.org.in/health-products'),
+	 ('National Health Insurance','6000+',107.64,'https://www.nhp.gov.in/national-health-insurance-schemes_pg'),
+	 ('New India Assurance Health Insurance','3000+',103.74,'https://www.newindia.co.in'),
+	 ('IFFCO Tokio Health Insurance','5000+',102.0,'https://www.iffcotokio.co.in/health-insurance'),
+	 ('Universal Sompo Health Insurance','5000+',92.0,'https://www.universalsompo.com/health-insurance'),
+	 ('Bharti AXA Health Insurance','4500+',89.0,'https://www.bharti-axagi.co.in/health-insurance'),
+	 ('Bajaj Allianz Health Insurance','6500+',85.0,'https://www.bajajallianz.com/health/policy'),
+	 ('Liberty Health Insurance','5000+',82.0,'https://www.libertyinsurance.in/health-insurance/')]
 
+	context = {'price':price, 'insurance_plans':insurance_plans}
+    
+	if request.method=='POST':
+		age = int(request.POST.get('age'))
+		sex= int(request.POST.get('sex'))
+		bmi =int(request.POST.get('bmi'))
+		children=int(request.POST.get('children'))
+		smoker= int(request.POST.get('smoker'))
+		region = int(request.POST.get('region'))
+
+		lgbm = joblib.load('files/lgbm_model.pkl')
+		price = lgbm.predict([[age,sex,bmi,children,smoker,region]])
+		context = {'price':int(price[0]),'insurance_plans':insurance_plans}	
+
+
+	return render(request,'basic_app/insurance.html',context)  
+
+
+def diet(request):
+	bodytype = None
+	food = None
+	context = {'bodytype' : bodytype, 'food': food}
+	if request.method=='POST':
+		age = int(request.POST.get('age'))
+		height = int(request.POST.get('height'))
+		weight =int(request.POST.get('weight'))
+		bmi = weight / ((height / 100) ** 2)
+
+		if (bmi < 18.5):
+			bodytype = 'According to your BMI you are Underweight. '
+			food = Weight_Gain(age,1,weight,height)
+		elif (bmi < 25):
+			bodytype = 'According to your BMI you are Healthy. '
+			food = Healthy(age,1,weight,height)
+		else:
+			bodytype = 'According to your BMI you are Overweight. '
+			food = Weight_Loss(age,1,weight,height)
+		if len(food)>7:
+			food = food[:6]
+
+		context = {'bodytype' : bodytype, 'food': food}
+		print(context)
+
+	    
+
+	return render(request,'basic_app/diet.html',context)
+ 
+def main(request):
+	result=""
+	description=""
+	precaution=[]
+	medication = []
+	if request.method=="POST":
+
+		with open('files/prognosis.csv', 'r') as f:
+			d_reader = csv.DictReader(f)
+			headers = d_reader.fieldnames
+
+		headers.remove(headers[132])
+		all_symptoms= headers
+
+		symptoms_experienced= request.POST.getlist('framework[]')
+		print (symptoms_experienced)
+
+		for i in range (len(all_symptoms)):
+			if all_symptoms[i] in symptoms_experienced:
+				all_symptoms[i]=1
+			else:
+				all_symptoms[i]=0
+		mdl= joblib.load('files/disease.pkl')
+		prediction_result=mdl.predict([all_symptoms])
+		result= ''.join(prediction_result)
+		print(result)
+
+		with open('files/symptom_Description.csv') as csv_file:
+			csv_reader = csv.reader(csv_file, delimiter=',')
+			for row in csv_reader:
+				if row[0]==result:
+					description=(row[1])
+					print (description)
+
+		with open('files/symptom_precaution.csv') as csv_file:
+			csv_reader = csv.reader(csv_file, delimiter=',')
+			for row in csv_reader:
+				if row[0]==result:
+					for i in range(1,5):
+						if row[i]!='':
+							precaution.append(row[i])
+					print (precaution)
+
+		with open('files/medicine.csv') as csv_file:
+			csv_reader = csv.reader(csv_file, delimiter=',')
+			for row in csv_reader:
+				if row[0]==result:
+					for i in range(1,4):
+						if row[i]!='':
+							medication.append(row[i])
+					
+					print (medication)
+                
+
+	context= {'text':result,'des':description,'pre':precaution,'med':medication}
+	
+	return render(request,'basic_app/main.html',context)  
 
 @login_required
 def user_logout(request):

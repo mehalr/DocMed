@@ -85,23 +85,5 @@ class Prescription(models.Model):
 
 
 
-# GENDER_CHOICES =[
-#     ('Male','Male'),
-#     ('Female','Female'),
-#     ]
 
-
-# # Create your models here.
-# class UserProfileInfo(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True,default=None,null=True)
-
-#     #additional
-#     First_Name = models.CharField(blank=True,max_length=15)
-#     Last_Name = models.CharField(blank=True,max_length=10)
-#     DOB = models.DateField(blank=True,max_length=15)
-#     Gender = models.CharField(blank=True,max_length=10,choices=GENDER_CHOICES)
-#     Mobile = models.CharField(blank=True,max_length=13)
-
-#     def __str__(self):
-#         return self.user.username
        

@@ -16,6 +16,7 @@ from django.template.loader import get_template
 from django.template import Context
 
 from basic_app.whatsapp import send_message
+from basic_app.diet_recommender import *
 from basic_app import models
 from basic_app.models import * 
 import pickle 

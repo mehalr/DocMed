@@ -4,32 +4,7 @@ box-sizing: border-box;
 font-family: 'Josefin Sans', sans-serif;
 }
 
-/*.navbar-nav li a{
-	color: #e6291c;
-}
 
-.navbar-nav > li{
-  padding-left:5px;
-  padding-right:5px;
-}
-
-.button1{
-	color: #E8505B;
-	background-color: #fff;
-	border: 2px solid #E8505B;
-	border-radius: 40px; 
-	width: 100px;
-	height: 30px;
-}
-
-.button2{
-	background-color: #E8505B;
-	color: #fff;
-	border: none;
-	border-radius: 40px; 
-	width: 100px;
-	height: 30px;
-}
 */
 header{
  width: 100%;
@@ -59,7 +34,7 @@ main .left-sec{
 }
 
 figure{
-	padding-top: 15%;
+	padding-top: 20%;
 }
 
 .left-sec h2{

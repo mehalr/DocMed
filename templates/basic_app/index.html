@@ -57,103 +57,50 @@
  		</div>
  	</div>
   
-   <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <img src="{% static "images/news.png/" %}" id="news" align="right">
-    <h1 class="display-4">News updates!</h1>
-    <p class="lead">Get latest health news updates regarding Covid-19 and much more!</p>
+  <section style="background-color:#D3D3D3" id="aboutus">
+  <div class="container" style="display:flex;" >
+    <img src="{% static 'images/about.png/' %}" id="news" align="right">
+    <div class="container" style="padding-top: 40px">
+    <h1>About us</h1>
+    </div>
   </div>
-  <button class="button button3">
-     LEARN MORE
-   </button>
+</section>
+
+<section id="contactus">
+  <div class="container" style="display:flex;" >
+    <img src="{% static 'images/Contact-us.png/' %}" id="news" align="right">
+    <div class="container" style="padding-top: 40px">
+    <h1>Contact us</h1>
+    <form>
+     <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 </div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Phone number</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Phone number">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+<div class="mb-3">
+  <button type="submit" class="btn btn-danger">Submit</button>
+</div>
+   </form>
+    </div>
+  </div>
+</section>
+ 
 
-  <main id="pharm">
-  <section class="left-sec">
-    <figure>
-    <img src="{% static "images/pharm.png/" %}" id="img">
-   </figure>
-  </section>
-  <section class="right-sec">
-   <h2> We Are Here For Your Care</h2>
-   <h1>  We The Best Doctors</h1>
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-   tempor incididunt ut labore et dolore magna aliqua. </p>
-   <hr>
-   <p> </p>
-   <button class="button button3">
-     LEARN MORE
-   </button>
-  </section>
- </main>
-
- </section>
+</section>
 
 
  </header>
 
 
 
- <!-- end of something nice -->
- <!-- footer -->
-<!--  <footer class="footersection" id="footerdiv">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 col-md-6 col-12 footer-div">
-        <div>
-          <h3>ABOUT US</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. </p>
-        </div>
-      </div>
-
-       <div class="col-lg-4 col-md-6 col-12 footer-div text-center">
-        <div>
-          <h3>Navigation links</h3>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">contact us</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Service</a></li>
-        </div>
-      </div>
-
-
-       <div class="col-lg-4 col-md-6 col-12 footer-div">
-        <div>
-          <h3>Newsletter</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. </p>
-
-          <div class="container newsletter-main">
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2 col-12 ">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control news-input" placeholder="Your Email">
-                  <div class="input-group-append">
-                    <span class="input-group-text">Subscribe</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-5 text-center">
-       <div class="col item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google"></i></a></div>
-      <p>Copyright ©2020 All rights Reserved</p> 
-    </div>
-  </div>
-   
- </footer> -->
-
-
- <!-- end of footer -->
+ 
 {% include "basic_app/footer.html" %}
   {% endblock %}
   

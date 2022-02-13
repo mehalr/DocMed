@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% extends 'basic_app/base.html'%}
+{% load static%}
+
+{% block body_block %}
+
+<style type="text/css">
+  .disabled{
+      pointer-events: none;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/patient.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+<div class="wrapper">
+  <div class="wrapper_left">
+    <ul>
+      <li data-li="dashboard" class="disabled">
+        <p><i class="fas fa-user"></i> Dashboard</p>
+      </li>
+      <li data-li="book_appointment" class="active">
+        <p><i class="fas fa-notes-medical"></i> edit appointment</p>
+      </li>
+      <li data-li="view_appointment" class="disabled">
+        <p><i class="fas fa-clipboard-list"></i> manage appointments</p>
+      </li>
+      <li data-li="prescription" class="disabled">
+        <p><i class="fas fa-address-book"></i> Prescription</p>
+      </li>
+    </ul>
+  </div>
+  <div class="wrapper_right">
+    <div class="container">
+      <div class="item dashboard">
+        <div class="item_info">
+          <div class="img"></div>
+          <p>Edit appointment</p>
+        </div>
+           <div class="container" style="display: flex;">
+            <style type="text/css"> #app{padding-top: 25px};</style>
+    <img src="{% static 'images/appointment.png' %}" id="app" align="left">
+    <div id="appform" style="padding-top: 50px">
+    <form method="post">
+      {% csrf_token %}
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="First_name">First Name</label>
+      <input type="text" class="form-control" name="First_name" placeholder="First Name" value="{{ editapp.First_name}}">
+
+
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Last_name">Last Name</label>
+      <input type="text" class="form-control" name="Last_name" placeholder="Last Name" value="{{ editapp.Last_name}}">
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phone_number">Phone Number</label>
+    <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" value="{{ editapp.phone_number}}">
+
+  </div>
+   <div class="form-group">
+    <label for="doctor">Select your doctor</label>
+     <select class="custom-select" name="doctor" value="{{ editapp.doctor}}">
+      <option selected>{{ editapp.doctor}}</option>
+    {% for j in docname %}
+    <option value= "{{j.full_name}}">{{ j.full_name }}</option>
+    {% endfor %}
+  </select>
+  </div>
+    <div>
+    <label for="message">Message</label>
+    <input type="text" class="form-control" name="message" placeholder="Enter your message" value="{{ editapp.message}}">
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="time">Time</label>
+      <input type="time" class="form-control" name="time" placeholder="HH:MM AM/PM" value="{{ editapp.time}}">
+
+    </div>
+    <div class="form-group col-md-6">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" name="date" placeholder="" value="{{ editapp.date}}">
+
+      </div>
+    </div>
+  <button type="submit" class="btn btn-primary" name="appointment" style="background: #BE0000">Update appointment</button>
+</form> 
+</div>
+</div> 
+  
+   
+ 
+  </div>
+
+{% endblock %}

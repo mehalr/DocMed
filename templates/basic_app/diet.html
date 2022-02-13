@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+
+{% extends "basic_app/base.html" %}
+{% load static %}
+
+ {% block body_block %}
+   
+
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <img src="{% static "images/diet.png/" %}" id="news" align="right">
+    <h1 class="display-4">Diet recommendation!</h1>
+    <p class="lead">Get customised diet recommendations..</p>
+     <div class="container"  id="form">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Age</label>
+        <input type="text" class="form-control" id="age" name="age">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Weight</label>
+        <input type="text" class="form-control" id="bmi" name="weight">
+      </div>
+      <div class="col-md-6">
+        <label for="inputAddress" class="form-label">Height</label>
+        <input type="text" class="form-control" id="" placeholder="" name="height">
+      </div>
+      <br>
+       <div class="col-12">
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </div>
+      </form>  
+    </div>
+   </form>
+
+    
+      {% if bodytype %}
+      <hr>
+      <div class="container">
+    <div class="card" style="width: 25rem;border:2px solid red;">
+      <div class="card-body">
+        <h5 class="card-title">{{ bodytype }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Suggested food items:</h6>
+         <ul>
+          {% for f in food %}
+            <li> {{ f }}</li>
+          {% endfor %}
+         </ul>
+         <h6 class="card-subtitle mb-2 text-muted">Thank you for taking our recommendation!</h6>
+      </div>
+    </div>
+  </div>
+
+      {% endif %}
+     
+    
+    
+  </div>
+  </div>
+ 
+</div>
+
+
+
+{% endblock %}
